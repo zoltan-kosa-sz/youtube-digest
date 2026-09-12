@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Claude Codes New INTENT.MD, What is It?</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap reading">
+  <header class="top">
+    <h1><a href="../index.html">YouTube Digest</a></h1>
+    <span class="stamp">Ai podcasts</span>
+  </header>
+  <article class="note">
+    <h1 class="title">Claude Codes New INTENT.MD, What is It?</h1>
+    <p class="meta">Switch Dimension (Rob Shocks) <span class="sep">/</span> 2026-09-11 <span class="sep">/</span> <a href="https://www.youtube.com/watch?v=LoMOPj-lO8U" target="_blank" rel="noopener">Watch</a></p>
+    <h3>Use</h3>
+<ol>
+<li>Try the artifact chain on your next feature: create an `intent/` folder, have Claude interview you until it can write `intent.md`, then generate `spec.md` and `plan.md` from it before touching code.</li>
+<li>Write `plan.md` so it's self-sufficient — detailed enough that a different agent (no memory of the planning conversation) could implement it unaided. Test this deliberately since sub-agents/worktrees mean no single agent sees the whole thread.</li>
+<li>Before trusting "auto mode" for autonomous building, lock down permissions (allowed folders, packages, web sources) first — the video frames this as the prerequisite for speed, not optional cleanup.</li>
+</ol>
+<h3>Bottom line</h3>
+<p>Anthropic's AI-native SDLC playbook reframes the bottleneck: agents made coding fast, so now planning, review, testing, deployment and maintenance are the slow steps — and it formalizes each stage as a git-committed, machine-readable artifact (intent.md → spec.md → plan.md → PR → incident record) so any agent or human can pick up work without the original conversation.</p>
+<h3>Key ideas</h3>
+<ul>
+<li><strong>intent.md is written by "the originator,"</strong> not a specialist — a customer's bug report, a PM's feature idea, a dev's process fix. A product owner then triages the resulting backlog of intent files.</li>
+<li><strong>Each stage hands off an artifact, not a conversation</strong> — because separate (sub-)agents work different stages, plan.md must stand alone without reference back to intent.md or spec.md.</li>
+<li><strong>Testing shifts left of the human:</strong> agents write tests, lint, and even browser-test with screenshots (Playwright-style) before a human reviewer ever looks, meant to compress the traditional QA wait.</li>
+<li><strong>Continuous evals guard against regressions</strong> — a fixed set of past issues gets re-run whenever a model, skill, or scale changes, to catch AI-SDLC regressions early.</li>
+<li><strong>Deploy and maintain get their own agent + policy layer:</strong> a separate Claude instance reviews PRs against security/style policy; hooks can gate deployment on human approval.</li>
+<li><strong>Maintenance becomes proactive, not reactive:</strong> an alert, ticket, or Slack message can trigger Claude to diagnose and draft its own intent.md before a human is even paged — the most speculative part of the playbook, per the presenter himself.</li>
+</ul>
+<h3>Reality check</h3>
+<ul>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Anthropic published a real "AI-Native SDLC playbook" (claude.com/blog, Aug 21 2026) defining exactly this Plan→Maintain artifact chain (intent.md, spec.md, plan.md, PR, incident record) and the line "code is no longer the bottleneck."</span></li>
+<li class="v"><span class="verdict v-mid">Mixed</span><span class="v-body">video credits "Boris [Cherny], the creator of Claude Code" with having "just released" the playbook. Cherny (Head of Claude Code) is credited as creator of the related Claude Academy course, but the actual blog post is bylined Anthropic writer Louis Claxton, not Cherny — attribution is directionally right but blurs author vs. course creator.</span></li>
+<li class="v"><span class="verdict v-mid">Mixed</span><span class="v-body">"we're two times faster" on the build stage, presented as Anthropic's own framing. This specific 2x figure doesn't appear in the published playbook; it reads as the presenter's own illustration of the "code is no longer the bottleneck" idea, not a cited Anthropic statistic.</span></li>
+</ul>
+  </article>
+  
+  <div class="watch">
+    <p class="label">Watch</p>
+    <div class="embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/LoMOPj-lO8U"
+              title="Claude Codes New INTENT.MD, What is It?" loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+  <a class="backlink" href="../index.html">&larr; All notes</a>
+</div>
+</body></html>

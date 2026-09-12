@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Only Claude Code Design Setup You Need (Firecrawl)</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap reading">
+  <header class="top">
+    <h1><a href="../index.html">YouTube Digest</a></h1>
+    <span class="stamp">Ai podcasts</span>
+  </header>
+  <article class="note">
+    <h1 class="title">The Only Claude Code Design Setup You Need (Firecrawl)</h1>
+    <p class="meta">Ai podcasts <span class="sep">/</span> 2026-09-12 <span class="sep">/</span> <a href="https://www.youtube.com/watch?v=lXIWm2Fm_DU" target="_blank" rel="noopener">Watch</a></p>
+    <h3>Use</h3>
+<ol>
+<li>When using Claude Code's `/design` skill, don't let Claude generate the site code directly from the artifact — prompt it to use the <strong>Firecrawl developer index skill</strong> first (reads current framework docs) so it builds proper components/routes in a real framework (e.g. Next.js) instead of raw HTML/CSS/vanilla JS.</li>
+<li>To get a reusable design system without Claude Design proper: scrape a reference site with Firecrawl (`format: branding + screenshots`) to pull logo, colors, fonts, and components, then use Firecrawl's <strong>website design clone skill</strong> to generate a `design.md` Claude Code can build from.</li>
+<li>For inspiration-driven design work, feed Claude a reference URL + an image source (Unsplash/Lummi API) plus the instruction to study the site via Firecrawl before designing — produces noticeably better output than a cold prompt.</li>
+</ol>
+<h3>Bottom line</h3>
+<p>Claude Code's new `/design` skill makes good-looking artboards but bad, unmaintainable code and no portable design system; Firecrawl's developer-index and site-scraping/clone skills patch both gaps — better generated code and a transferable design system built from any reference site.</p>
+<h3>Key ideas</h3>
+<ul>
+<li><strong>Claude Code's `/design` skill produces vanilla HTML/CSS/JS with poor patterns</strong> (IIFEs, `var`, non-arrow callbacks) — hard to maintain or extend, unlike a framework-based build.</li>
+<li><strong>Firecrawl's developer index gives the coding agent live, indexed framework docs</strong> (Tailwind 4, PostCSS, Next.js app router/fonts) during code generation, which is what turns the output into structured components and routes instead of one messy script.</li>
+<li><strong>Claude's own `/design-sync` skill can build a design system, but only for use inside Claude Design</strong> — it doesn't carry over to Claude Code's `/design` skill, creating a gap Firecrawl fills via scraping.</li>
+<li><strong>Firecrawl's scrape endpoint extracts brand assets (logo, favicon, OG image, colors, typography, components) from any URL</strong>, letting you build a "design system" from a competitor or inspiration site rather than from scratch.</li>
+<li><strong>The `/design` skill in Claude Code is more limited than Claude Design proper</strong>: no templates, no on-artboard comments to Claude, no layout drag-and-drop persistence, no fullscreen/new-tab view — reflects its "research preview" status.</li>
+</ul>
+<h3>Reality check</h3>
+<ul>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Firecrawl's developer index covers 70M+ developer artifacts (docs, READMEs, issues, PRs) — confirmed on Firecrawl's own site and independent coverage; it's a real, currently-shipping product feature, not a made-up number.</span></li>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Claude Code's `/design` command is a real, currently-in-research-preview feature (confirmed via Anthropic-adjacent coverage), matching the video's description of artboards, desktop/mobile views, and limited functionality vs. Claude Design.</span></li>
+<li class="v"><span class="verdict v-mid">Mixed</span><span class="v-body">"Built the whole site in under an hour, no other libraries needed" — this is the presenter's own unverified claim in a video promoting Firecrawl (with a signup discount code at the end), so treat the speed/simplicity framing as a sales pitch rather than a measured result; your own mileage on iteration count will vary.</span></li>
+</ul>
+  </article>
+  
+  <div class="watch">
+    <p class="label">Watch</p>
+    <div class="embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/lXIWm2Fm_DU"
+              title="The Only Claude Code Design Setup You Need (Firecrawl)" loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+  <a class="backlink" href="../index.html">&larr; All notes</a>
+</div>
+</body></html>
