@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Building a memory-consolidation routine for Claude Code</title>
-<link rel="stylesheet" href="../style.css?v=32613dab">
+<link rel="stylesheet" href="../style.css?v=e65fb5e2">
 </head>
 <body>
 <div class="wrap reading">
@@ -26,12 +26,12 @@
 <p><strong>Claude's memory problem isn't that it forgets — it's that nothing decides what's worth keeping.</strong> People consolidate the day's memories while asleep; Claude starts every session cold, so the fix is a scheduled job that rereads past sessions and rewrites the memory files itself.</p>
 <h3>Key ideas</h3>
 <ul>
-<li><strong>The missing step is consolidation, not storage.</strong> Karpathy's framing: sleep turns a day's short-term context into long-term changes in the brain. Models have no equivalent and restart from nothing.</li>
-<li><strong>Three layers hold your context and do different jobs.</strong> The live session (gone when it ends), memory files (facts Claude captured on its own), and CLAUDE.md (rules you deliberately wrote down). The last two load at the start of every session.</li>
-<li><strong>Build each step as a separate skill, then have one skill call them.</strong> Analysing sessions, improving memory and sending the result are each useful alone; the "dream" skill only orchestrates.</li>
-<li><strong>Your raw session history holds more than the memory file does.</strong> Claude Code saves conversations locally; memory keeps only what it judged important at the time, so rereading the raw record surfaces patterns it skipped.</li>
-<li><strong>A human still signs off.</strong> The job splits changes into what it applied itself and what you must decide — otherwise an automated rewrite quietly drifts your instructions.</li>
-<li><strong>Anthropic already ships exactly this.</strong> Its Dreams feature rereads past sessions and rebuilds the memory store; the video's contribution is a hand-rolled version for people who can't access it.</li>
+<li><strong>The missing step is consolidation, not storage.</strong> Karpathy's framing: sleep turns a day's short-term context into long-term changes in the brain. Models have no equivalent and restart from nothing.<span class="ts">1:01</span></li>
+<li><strong>Anthropic already ships exactly this.</strong> Its Dreams feature rereads past sessions and rebuilds the memory store; the video's contribution is a hand-rolled version for people who can't access it.<span class="ts">3:05</span></li>
+<li><strong>Three layers hold your context and do different jobs.</strong> The live session (gone when it ends), memory files (facts Claude captured on its own), and CLAUDE.md (rules you deliberately wrote down). The last two load at the start of every session.<span class="ts">6:10</span></li>
+<li><strong>Build each step as a separate skill, then have one skill call them.</strong> Analysing sessions, improving memory and sending the result are each useful alone; the "dream" skill only orchestrates.<span class="ts">8:12</span></li>
+<li><strong>Your raw session history holds more than the memory file does.</strong> Claude Code saves conversations locally; memory keeps only what it judged important at the time, so rereading the raw record surfaces patterns it skipped.<span class="ts">8:44</span></li>
+<li><strong>A human still signs off.</strong> The job splits changes into what it applied itself and what you must decide — otherwise an automated rewrite quietly drifts your instructions.<span class="ts">11:49</span></li>
 </ul>
 <h3>Reality check</h3>
 <ul>
