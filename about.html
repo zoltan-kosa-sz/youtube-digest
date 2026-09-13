@@ -14,7 +14,7 @@
   --paper:#F5F4F1; --panel:#FFFFFF;
   --ink:#131316; --body:#35353A; --muted:#65656D; --faint:#8E8E96;
   --rule:#DCDBD6; --rule-hard:#B9B8B2;
-  --accent:#DC3A2C;
+  --accent:#DC3A2C; --on-accent:#FFFFFF;
   --ok:#1D6F57; --mid:#8A6414;
   --grot:"Archivo",Helvetica,"Helvetica Neue",Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -24,14 +24,14 @@
     --paper:#121214; --panel:#1A1A1E;
     --ink:#F2F1EE; --body:#C6C6CC; --muted:#93939B; --faint:#74747C;
     --rule:#2A2A2F; --rule-hard:#43434A;
-    --accent:#FF6B5C; --ok:#5FB495; --mid:#D4A64F;
+    --accent:#FF6B5C; --on-accent:#121214; --ok:#5FB495; --mid:#D4A64F;
   }
 }
 :root[data-theme="dark"] {
   --paper:#121214; --panel:#1A1A1E;
   --ink:#F2F1EE; --body:#C6C6CC; --muted:#93939B; --faint:#74747C;
   --rule:#2A2A2F; --rule-hard:#43434A;
-  --accent:#FF6B5C; --ok:#5FB495; --mid:#D4A64F;
+  --accent:#FF6B5C; --on-accent:#121214; --ok:#5FB495; --mid:#D4A64F;
 }
 
 * { box-sizing: border-box; }
@@ -137,11 +137,23 @@ h1 {
 .fig:first-child .v { color: var(--accent); }
 .fig p { margin: 9px 0 0; font-size: 14px; color: var(--muted); line-height: 1.35; max-width: 22ch; }
 
-.foot { border-top: 1px solid var(--rule); padding-top: 22px; display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: baseline; justify-content: space-between; }
-.foot span { font-family: var(--mono); font-size: 12px; color: var(--faint); }
-.foot a { font-weight: 600; font-size: 16px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
-.foot a:hover { color: var(--accent); }
-.foot a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.foot {
+  border-top: 1px solid var(--rule); padding-top: clamp(24px, 4vw, 34px);
+  display: flex; flex-wrap: wrap; gap: 20px 26px;
+  align-items: center; justify-content: space-between;
+}
+.foot .lead {
+  margin: 0; font-weight: 600; font-size: clamp(19px, 2.8vw, 24px);
+  letter-spacing: -.02em; color: var(--ink); line-height: 1.2;
+}
+.foot .sig { display: block; margin-top: 6px; font-family: var(--mono); font-size: 12px; color: var(--faint); font-weight: 400; letter-spacing: .02em; }
+.cta {
+  display: inline-block; background: var(--accent); color: var(--on-accent);
+  font-weight: 600; font-size: 16.5px; letter-spacing: -.01em;
+  padding: 14px 24px; text-decoration: none; white-space: nowrap;
+}
+.cta:hover { background: var(--ink); color: var(--paper); }
+.cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 @media (max-width: 660px) {
   .row { grid-template-columns: 1fr; gap: 14px; padding-block: 28px; }
@@ -157,7 +169,7 @@ h1 {
 <div class="sheet">
 
   <header class="mast">
-    <p class="brand"><a href="index.html">YouTube Digest</a></p>
+    <p class="brand">YouTube Digest</p>
     <h1>Turn podcasts into things you actually use.</h1>
     <p class="deck">Save a video to a playlist. A short note comes back — the useful parts pulled out, <b>every claim fact-checked</b>, on one page that doesn't get buried.</p>
   </header>
@@ -245,8 +257,11 @@ h1 {
   </section>
 
   <div class="foot">
-    <span>Runs weekly. Unattended.</span>
-    <a href="index.html">Read the notes</a>
+    <p class="lead">
+      See what it has made so far.
+      <span class="sig">Runs weekly · unattended</span>
+    </p>
+    <a class="cta" href="index.html">Open the digest &rarr;</a>
   </div>
 
 </div>
