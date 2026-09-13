@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Building a memory-consolidation routine for Claude Code</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap reading">
+  <header class="top">
+    <h1><a href="../index.html">YouTube Digest</a></h1>
+    <span class="stamp">(single video)</span>
+  </header>
+  <article class="note">
+    <h1 class="title">Building a memory-consolidation routine for Claude Code</h1>
+    <p class="meta">Austin Marchese <span class="sep">/</span> 2026-09-13 <span class="sep">/</span> <a href="https://www.youtube.com/watch?v=4hIvG849w4Y" target="_blank" rel="noopener">Watch</a></p>
+    <h3>Use</h3>
+<ol>
+<li><strong>Run a scheduled memory clean-up.</strong> A recurring job reads your recent sessions and proposes edits to your memory and CLAUDE.md files, so you stop giving the same correction twice.</li>
+<li><strong>Give review and apply their own slots.</strong> Run the analysis one day and apply the approved fixes the next, or a known problem sits unfixed until the next run.</li>
+<li><strong>Move folder-specific instructions into that folder.</strong> Rules that load only where they apply keep unrelated context out of the window.</li>
+</ol>
+<h3>Bottom line</h3>
+<p><strong>Claude's memory problem isn't that it forgets — it's that nothing decides what's worth keeping.</strong> People consolidate the day's memories while asleep; Claude starts every session cold, so the fix is a scheduled job that rereads past sessions and rewrites the memory files itself.</p>
+<h3>Key ideas</h3>
+<ul>
+<li><strong>The missing step is consolidation, not storage.</strong> Karpathy's framing: sleep turns a day's short-term context into long-term changes in the brain. Models have no equivalent and restart from nothing.</li>
+<li><strong>Three layers hold your context and do different jobs.</strong> The live session (gone when it ends), memory files (facts Claude captured on its own), and CLAUDE.md (rules you deliberately wrote down). The last two load at the start of every session.</li>
+<li><strong>Build each step as a separate skill, then have one skill call them.</strong> Analysing sessions, improving memory and sending the result are each useful alone; the "dream" skill only orchestrates.</li>
+<li><strong>Your raw session history holds more than the memory file does.</strong> Claude Code saves conversations locally; memory keeps only what it judged important at the time, so rereading the raw record surfaces patterns it skipped.</li>
+<li><strong>A human still signs off.</strong> The job splits changes into what it applied itself and what you must decide — otherwise an automated rewrite quietly drifts your instructions.</li>
+<li><strong>Anthropic already ships exactly this.</strong> Its Dreams feature rereads past sessions and rebuilds the memory store; the video's contribution is a hand-rolled version for people who can't access it.</li>
+</ul>
+<h3>Reality check</h3>
+<ul>
+<li class="v"><span class="verdict v-mid">Mixed</span><span class="v-body">"Karpathy joined Anthropic to fix Claude's memory." He did join, in May 2026, but onto the <strong>pre-training</strong> team under Nick Joseph. Nothing announced ties him to memory work; the video's whole framing rests on a link that was never stated.</span></li>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Dreams works as described. Anthropic's API docs confirm a dream reads a memory store plus up to 100 past session transcripts, merges duplicates, replaces contradicted entries, and accepts an instructions field to steer it.</span></li>
+<li class="v"><span class="verdict v-mid">Mixed</span><span class="v-body">"Dreams is enterprise-only." It's a gated research preview on Managed Agents, billed at normal API token rates, on Opus 4.7 and Sonnet 4.6. Restricted by preview access, not by company size — "email me if you're an enterprise" is a sales line, not the access rule.</span></li>
+<li class="v"><span class="verdict v-mid">Mixed</span><span class="v-body">The pushback on Boris Cherny. The quote is real (YC Startup School 2026), but the video narrows it to coding help. Cherny aimed it at "people who aren't building agentic products but are using Claude Code" — this video's exact audience — and Anthropic cut 80% of Claude Code's system prompt for Opus 5.</span></li>
+<li><strong>Sales motive</strong> — The build routes through the presenter's own plugin, with a sponsor read and a giveaway attached. The underlying idea stands on its own; the tooling recommendation doesn't.</li>
+</ul>
+  </article>
+  
+  <div class="watch">
+    <p class="label">Watch</p>
+    <div class="embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/4hIvG849w4Y"
+              title="Building a memory-consolidation routine for Claude Code" loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+  <a class="backlink" href="../index.html">&larr; All notes</a>
+</div>
+</body></html>
