@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A mentett podcastok nyomtalanul eltűnnek. Ez rövid, tényellenőrzött jegyzetekké alakítja őket, amiket tényleg fel tudsz használni.">
+<title>Mi ez · YouTube Digest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --paper:#F5F4F1; --panel:#FFFFFF;
+  --ink:#131316; --body:#35353A; --muted:#65656D; --faint:#8E8E96;
+  --rule:#DCDBD6; --rule-hard:#B9B8B2;
+  --accent:#DC3A2C; --on-accent:#FFFFFF;
+  --ok:#1D6F57; --mid:#8A6414;
+  --grot:"Archivo",Helvetica,"Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#121214; --panel:#1A1A1E;
+    --ink:#F2F1EE; --body:#C6C6CC; --muted:#93939B; --faint:#74747C;
+    --rule:#2A2A2F; --rule-hard:#43434A;
+    --accent:#FF6B5C; --on-accent:#121214; --ok:#5FB495; --mid:#D4A64F;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#121214; --panel:#1A1A1E;
+  --ink:#F2F1EE; --body:#C6C6CC; --muted:#93939B; --faint:#74747C;
+  --rule:#2A2A2F; --rule-hard:#43434A;
+  --accent:#FF6B5C; --on-accent:#121214; --ok:#5FB495; --mid:#D4A64F;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--body);
+  font-family: var(--grot); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.rail { height: 5px; background: var(--accent); }
+.sheet {
+  max-width: 860px; margin: 0 auto;
+  padding-inline: clamp(20px, 5vw, 44px);
+  padding-block: clamp(30px, 5vw, 52px) clamp(40px, 7vw, 64px);
+}
+
+.row {
+  display: grid; grid-template-columns: 128px 1fr; gap: clamp(16px, 3vw, 34px);
+  padding-block: clamp(30px, 5vw, 48px); border-top: 1px solid var(--rule);
+}
+.lbl {
+  font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--faint); margin: 0; padding-top: 5px;
+}
+
+.mast { padding-block: clamp(8px, 2vw, 16px) clamp(34px, 6vw, 56px); }
+.mast .brand {
+  font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 clamp(22px, 4vw, 38px);
+}
+h1 {
+  font-weight: 700; font-size: clamp(35px, 7.4vw, 64px); line-height: 1.0;
+  letter-spacing: -.033em; color: var(--ink); margin: 0; max-width: 14ch;
+}
+.deck {
+  margin: clamp(18px, 3vw, 26px) 0 0; font-size: clamp(17px, 2.1vw, 20px);
+  line-height: 1.5; color: var(--body); max-width: 46ch;
+}
+.deck b { color: var(--ink); font-weight: 600; }
+
+.verdict-line {
+  font-weight: 600; font-size: clamp(21px, 3.4vw, 29px); line-height: 1.2;
+  letter-spacing: -.022em; color: var(--ink); margin: 0; max-width: 20ch;
+}
+.frictions { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-direction: column; }
+.frictions li {
+  padding-block: 11px; border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 20px 1fr; gap: 10px;
+  font-size: 16px; color: var(--muted);
+}
+.frictions li::before { content: "—"; color: var(--accent); font-weight: 600; }
+
+.swap { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.card { background: var(--panel); padding: clamp(16px, 2.6vw, 22px); display: flex; flex-direction: column; gap: 11px; min-width: 0; }
+.card .tag {
+  font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--faint);
+  padding-bottom: 9px; border-bottom: 2px solid var(--rule-hard);
+}
+.card.before .tag { border-bottom-color: var(--accent); }
+.card.after .tag { border-bottom-color: var(--ok); }
+.t-loud { font-weight: 700; font-size: clamp(16px, 2vw, 17.5px); line-height: 1.22; letter-spacing: -.018em; color: var(--ink); margin: 0; }
+.t-clean { font-weight: 600; font-size: clamp(16px, 2vw, 17.5px); line-height: 1.28; letter-spacing: -.014em; color: var(--ink); margin: 0; }
+.sm { font-size: 14.5px; line-height: 1.45; color: var(--muted); margin: 0; }
+.sm b { color: var(--body); font-weight: 600; }
+.chip {
+  display: inline-block; font-family: var(--mono); font-size: 9.5px; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--mid);
+  border: 1px solid currentColor; padding: 2px 6px; margin-bottom: 6px;
+}
+.card .meta {
+  margin-top: auto; padding-top: 11px; border-top: 1px solid var(--rule);
+  font-family: var(--mono); font-size: 11.5px; color: var(--faint);
+}
+
+.stack { display: flex; flex-direction: column; }
+.item { padding-block: 16px; border-top: 1px solid var(--rule); }
+.item:first-child { border-top: 0; padding-top: 0; }
+.item h3 {
+  margin: 0; font-size: clamp(17px, 2.1vw, 19px); font-weight: 600;
+  letter-spacing: -.016em; color: var(--ink); line-height: 1.25;
+}
+.item p { margin: 4px 0 0; font-size: 15.5px; color: var(--muted); max-width: 52ch; }
+
+.defs { margin: 0; display: flex; flex-direction: column; }
+.def { display: grid; grid-template-columns: 132px 1fr; gap: 6px 18px; padding-block: 13px; border-top: 1px solid var(--rule); }
+.def:first-child { border-top: 0; padding-top: 0; }
+.def dt { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--ink); letter-spacing: .02em; }
+.def dd { margin: 0; font-size: 15.5px; color: var(--muted); }
+
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.step { background: var(--panel); padding: 16px; }
+.step .n { font-family: var(--mono); font-size: 11px; color: var(--accent); font-weight: 500; }
+.step p { margin: 7px 0 0; font-size: 15px; color: var(--body); line-height: 1.4; }
+
+.figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: clamp(16px, 3vw, 28px); }
+.fig .v {
+  font-weight: 700; font-size: clamp(38px, 6.4vw, 56px); line-height: .92;
+  letter-spacing: -.04em; color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.fig:first-child .v { color: var(--accent); }
+.fig p { margin: 9px 0 0; font-size: 14px; color: var(--muted); line-height: 1.35; max-width: 22ch; }
+
+.foot {
+  border-top: 1px solid var(--rule); padding-top: clamp(24px, 4vw, 34px);
+  display: flex; flex-wrap: wrap; gap: 20px 26px;
+  align-items: center; justify-content: space-between;
+}
+.foot .lead {
+  margin: 0; font-weight: 600; font-size: clamp(19px, 2.8vw, 24px);
+  letter-spacing: -.02em; color: var(--ink); line-height: 1.2;
+}
+.foot .sig { display: block; margin-top: 6px; font-family: var(--mono); font-size: 12px; color: var(--faint); font-weight: 400; letter-spacing: .02em; }
+.cta {
+  display: inline-block; background: var(--accent); color: var(--on-accent);
+  font-weight: 600; font-size: 16.5px; letter-spacing: -.01em;
+  padding: 14px 24px; text-decoration: none; white-space: nowrap;
+}
+.cta:hover { background: var(--ink); color: var(--paper); }
+.cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+@media (max-width: 660px) {
+  .row { grid-template-columns: 1fr; gap: 14px; padding-block: 28px; }
+  .lbl { padding-top: 0; }
+  .swap { grid-template-columns: 1fr; }
+  .def { grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rail"></div>
+<div class="sheet">
+
+  <header class="mast">
+    <p class="brand">YouTube Digest</p>
+    <h1>Csinálj valami hasznosat a podcastokból.</h1>
+    <p class="deck">Mentsd el a videót egy lejátszási listára. Cserébe kapsz egy rövid jegyzetet — a hasznos részek kiemelve, <b>minden állítás leellenőrizve</b>, egy oldalon, ami nem vész el.</p>
+  </header>
+
+  <section class="row">
+    <p class="lbl">A probléma</p>
+    <div>
+      <p class="verdict-line">Az információ jó volt. Csak szórakozás maradt belőle.</p>
+      <ul class="frictions">
+        <li>Vezetsz. Nincs nálad toll.</li>
+        <li>Egy időbélyeget elmenteni több macera, mint amennyit a tipp megér.</li>
+        <li>Így bekerül egy lejátszási listára, a másik harminc közé, amit sosem nyitsz meg többé.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row">
+    <p class="lbl">Ehelyett</p>
+    <div class="swap">
+      <div class="card before">
+        <span class="tag">Amit elmentettél</span>
+        <p class="t-loud">This Fixes Claude's Biggest Problem (Karpathy's Method)</p>
+        <p class="sm">Egy cím, ami elrejti, mi van benne. Egy állítás, amit neked kellene leellenőrizned. Egy plugin, amit az előadó árul.</p>
+        <p class="meta">18 perc · megnyitatlan</p>
+      </div>
+      <div class="card after">
+        <span class="tag">Ami vár rád</span>
+        <p class="t-clean">Building a memory-consolidation routine for Claude Code</p>
+        <p class="sm"><b>Ezt csináld:</b> ütemezz be egy memóriatakarítást, hogy ne kelljen kétszer ugyanazt kijavítanod.</p>
+        <p class="sm"><span class="chip">Mixed</span><br>Karpathy tényleg csatlakozott az Anthropichoz — de az előtanítási csapatba. Semmi nem köti a memória-fejlesztéshez.</p>
+        <p class="meta">2 perc · a többi közé archiválva</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <p class="lbl">Miért segít</p>
+    <div class="stack">
+      <div class="item">
+        <h3>Soha többé nem kell jegyzetelned.</h3>
+        <p>Mentsd el a videót. Ennyi a dolgod.</p>
+      </div>
+      <div class="item">
+        <h3>Minden egy helyen gyűlik össze.</h3>
+        <p>Egy oldal, legújabb elöl, minden cím elárulja, miről szólt valójában a videó.</p>
+      </div>
+      <div class="item">
+        <h3>Ami tennivaló, az van legelöl.</h3>
+        <p>Nem összefoglaló. Hogy mit csinálj vele, fontossági sorrendben — amit amúgy is fel akartál írni.</p>
+      </div>
+      <div class="item">
+        <h3>Nem dőlsz be semminek.</h3>
+        <p>Minden ellenőrizhető állítást leellenőrzünk, aztán megcímkézünk. Csak azzal foglalkozol, ami kiállta a próbát.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="row">
+    <p class="lbl">Minden jegyzetben</p>
+    <dl class="defs">
+      <div class="def"><dt>Teendő</dt><dd>Mit kezdj vele ténylegesen. Mindig legelöl.</dd></div>
+      <div class="def"><dt>Lényeg</dt><dd>Az egy dolog, amit érdemes megjegyezni.</dd></div>
+      <div class="def"><dt>Fő gondolatok</dt><dd>Fontosság szerint rendezve, nem aszerint, mikor hangzottak el.</dd></div>
+      <div class="def"><dt>Valóságpróba</dt><dd>Alátámasztott, Vegyes, Vitatott vagy Hamis — az indoklással együtt.</dd></div>
+    </dl>
+  </section>
+
+  <section class="row">
+    <p class="lbl">Módszer</p>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><p>Elmented egy videót egy lejátszási listára.</p></div>
+      <div class="step"><span class="n">02</span><p>Egy szkript lekéri a YouTube saját feliratát.</p></div>
+      <div class="step"><span class="n">03</span><p>A Claude elolvassa az egészet, és utánanéz az állításoknak.</p></div>
+      <div class="step"><span class="n">04</span><p>A jegyzet magától megjelenik. Hétfőnként, 9:00-kor.</p></div>
+    </div>
+  </section>
+
+  <section class="row">
+    <p class="lbl">Számokban</p>
+    <div class="figs">
+      <div class="fig"><div class="v">31</div><p>állítás igényelt fenntartást, vagy volt egyszerűen hibás</p></div>
+      <div class="fig"><div class="v">58</div><p>állítást ellenőriztünk forrásokból</p></div>
+      <div class="fig"><div class="v">12/12</div><p>videóban volt legalább egy ilyen</p></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <p class="lead">
+      Nézd meg, mi készült eddig.
+      <span class="sig">Hetente lefut · felügyelet nélkül</span>
+    </p>
+    <a class="cta" href="index.html">Irány a digest &rarr;</a>
+  </div>
+
+</div>
+</body>
+</html>
