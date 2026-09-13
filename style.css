@@ -69,6 +69,13 @@ a.row:hover .t { color: var(--link); }
 a.row .n { font-size: 10.5px; color: var(--faint); }
 a.row .t { font-size: 16.5px; line-height: 1.35; }
 a.row .c { font-size: 11.5px; letter-spacing: .04em; color: var(--faint); text-align: right; }
+a.row.hid { display: none; }
+
+.more {
+  background: none; border: 0; padding: 15px 0 0; cursor: pointer; font: inherit;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint);
+}
+.more:hover { color: var(--text); }
 
 /* ---------- notes ---------- */
 main { min-width: 0; max-width: 70ch; }
