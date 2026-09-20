@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Build skills, not agents — four principles</title>
+<link rel="stylesheet" href="../style.css?v=e65fb5e2">
+</head>
+<body>
+<div class="wrap reading">
+  <header class="top">
+    <h1><a href="../index.html">YouTube Digest</a></h1>
+    <span class="stamp">Ai podcasts</span>
+  </header>
+  <article class="note">
+    <h1 class="title">Build skills, not agents — four principles</h1>
+    <p class="meta">Ai Engineer <span class="sep">/</span> 2026-09-20 <span class="sep">/</span> <a href="https://www.youtube.com/watch?v=HIRDzMtuWFk" target="_blank" rel="noopener">Watch</a></p>
+    <h3>Use</h3>
+<ol>
+<li><strong>Save working code inside skills</strong> — Stop having Claude rewrite the same Python script or template every run. Extract proven solutions into tool files and reference them from the skill, so Claude reuses rather than rediscovers.</li>
+<li><strong>Write unambiguous skill descriptions</strong> — Use clear YAML frontmatter that says exactly what the skill does and when to use it. Audit descriptions so Claude picks the right skill, not a similar-sounding one.</li>
+<li><strong>Build verification into the workflow</strong> — Add checks before Claude returns work to you (render slides as images to catch formatting, verify sources match claims, run sub-agent reviews). Let it fix its own errors rather than you catching them.</li>
+</ol>
+<h3>Bottom line</h3>
+<p><strong>Instead of rebuilding agents for each job, design general-purpose skills with clear descriptions, reusable code, and built-in verification loops so the agent improves itself with each run.</strong> Anthropic engineers moved from task-specific agents to modular skills because a well-designed skill teaches the agent how you work, while a one-off agent forgets.</p>
+<h3>Key ideas</h3>
+<ul>
+<li><strong>Save proven code as a tool for the agent's future self</strong> — When Claude solves a problem well (a script that styles slides, a rendering template), extract it and store it in the skill folder. Future runs call the proven version instead of reinventing it, which saves tokens and keeps output consistent.<span class="ts">0:31</span></li>
+<li><strong>Progressive disclosure: load only what the task needs</strong> — Claude starts with just the skill name and description in the system prompt. When your prompt matches a skill's description, Claude reads the full skill.md. Larger files and scripts stay in the folder until they're actually needed. This cuts context bloat and avoids the confusion of overlapping skills.<span class="ts">3:05</span></li>
+<li><strong>Clear, specific descriptions trigger the right skill</strong> — Vague descriptions ("help with content" vs. "create marketing assets") make Claude guess. Stronger: "Creates LinkedIn carousels from a topic, transcript, or outline. Use this when the user asks for a carousel, slides, or LinkedIn post." Include the words a real person would use.<span class="ts">3:35</span></li>
+<li><strong>Turn each correction into a durable rule</strong> — When Claude makes the same mistake twice, don't just fix it in the moment—update the skill. If it's a process issue, update the instructions. If it's missing context, add reference files. If it's a recurring error, add an explicit rule. The skill becomes a living record of how you want the job done.<span class="ts">5:07</span></li>
+<li><strong>Verify work before it reaches you</strong> — Build checks into the skill: render slides as images and inspect them; match sources to claims before returning; have multiple agent personas review subjective work. Define acceptance criteria, create a first version, inspect it, fix issues, run another pass, then return. Claude should make 4–6 passes before you see draft one.<span class="ts">6:38</span></li>
+<li><strong>Test skills across compatible agents</strong> — Skills are an open format. If a skill works only with one model or agent, it's hiding assumptions. Test with another compatible agent (CodeX, Hermes). If it falls apart, tighten instructions and examples. A portable skill is a teachable one.<span class="ts">6:08</span></li>
+</ul>
+<h3>Reality check</h3>
+<ul>
+<li class="v"><span class="verdict v-no">False</span><span class="v-body">Anthropic engineers named: video calls them "Barry Jien and Mahesh Marog," but the correct names are <strong>Barry Zhang and Mahesh Murag</strong> (Anthropic engineers who created agent skills). The technical work and ideas are real; the names are wrong. [YouTube, Anthropic docs, Medium: "Claude Code &amp; Progressive Disclosure"]</span></li>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Progressive disclosure and YAML frontmatter structure: Anthropic's official documentation confirms that skills use YAML metadata at startup (brief name/description, ~100 tokens), then load full content only when relevant. [Anthropic Platform Docs: Agent Skills]</span></li>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">DRY principle and code reuse: standard software engineering practice. Building this into skills is sound. [Wikipedia: Don't Repeat Yourself]</span></li>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Verification loops before output: industry practice in production AI systems. Building it into the workflow rather than doing it after the fact aligns with Anthropic's own guidance on agentic systems. [Anthropic resources on agent architecture]</span></li>
+</ul>
+  </article>
+  
+  <div class="watch">
+    <p class="label">Watch</p>
+    <div class="embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/HIRDzMtuWFk"
+              title="Build skills, not agents — four principles" loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+  <a class="backlink" href="../index.html">&larr; All notes</a>
+</div>
+</body></html>

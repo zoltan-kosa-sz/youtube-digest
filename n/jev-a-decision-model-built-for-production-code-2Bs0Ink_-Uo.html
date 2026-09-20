@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Jev: a decision model built for production code</title>
+<link rel="stylesheet" href="../style.css?v=e65fb5e2">
+</head>
+<body>
+<div class="wrap reading">
+  <header class="top">
+    <h1><a href="../index.html">YouTube Digest</a></h1>
+    <span class="stamp">Ai podcasts</span>
+  </header>
+  <article class="note">
+    <h1 class="title">Jev: a decision model built for production code</h1>
+    <p class="meta">2026-09-20 <span class="sep">/</span> <a href="https://www.youtube.com/watch?v=2Bs0Ink_-Uo" target="_blank" rel="noopener">Watch</a></p>
+    <h3>Use</h3>
+<ol>
+<li><strong>Replace expensive LLM guards and tool routers with Jev</strong> — Instead of spinning up GPT/Claude for yes/no decisions on ticket priority, fraud risk, or tool selection, send typed questions to Jev, get probabilities back, and automate safely at 10–20x lower cost.</li>
+<li><strong>Route agent tool calls via fast classification</strong> — Use Jev to answer "which tool should this agent call?" or "is this urgent?" in parallel across multiple options (20–200x faster than LLM per decision), letting agents move at machine speed instead of waiting for token generation.</li>
+<li><strong>Evaluate whether to escalate or decide alone</strong> — Jev returns confidence scores with every answer, so your code can choose: above 95% confidence, run it autonomously; below 70%, hand it to a human or a reasoning LLM.</li>
+</ol>
+<h3>Bottom line</h3>
+<p><strong>Jev is a foundational model from TypeSafe AI that returns typed decisions with calibrated probabilities instead of text — enabling fast, cheap decision-making for code agents and production systems.</strong> It's not a replacement for reasoning models like Claude, but a specialized tool for the classification, routing, and guard-rail decisions that sit in the hot path of production workflows.</p>
+<h3>Key ideas</h3>
+<ul>
+<li><strong>System 1 thinking in code instead of System 2</strong> — Jev mirrors Kahneman's "System 1" (fast, intuitive) by returning probabilities in parallel instead of autoregressively generating tokens one at a time; no explanation, no hallucination, just decisions.<span class="ts">5:11</span></li>
+</ul>
+<ul>
+<li><strong>Purpose-built for routing and guards, not chat</strong> — It can't produce text and won't explain itself; it answers typed yes/no, choice, and score questions for tool routing, ticket triage, and verification at 20–200x cheaper and faster than GPT/Claude for those tasks.<span class="ts">0:30</span></li>
+</ul>
+<ul>
+<li><strong>Vercel saw 6x speed and 10–20x cost savings</strong> — Real-world: Vercel replaced Gemini 2.5 Flash Lite with Jev for classification, gained 6x speed, near-perfect accuracy, and paid 10–20x less; the model excels when you don't need prose, only decisions.<span class="ts">2:04</span></li>
+</ul>
+<ul>
+<li><strong>Parallel evaluation cuts latency in production loops</strong> — Jev evaluates all questions at once instead of looping through sequential requests; smart-home commands that took hundreds of milliseconds now return in 185ms, critical for games, robots, and real-time agents.<span class="ts">5:43</span></li>
+</ul>
+<ul>
+<li><strong>Confidence scores enable safe automation</strong> — Each decision includes calibrated probability, letting code choose: automate high-confidence answers, escalate low-confidence ones, or route to a reasoning model; schema-constrained outputs eliminate hallucination risk.<span class="ts">8:19</span></li>
+</ul>
+<ul>
+<li><strong>Fits the gap between brittle logic and unreliable agents</strong> — Deterministic if-then-else systems fail on nuance; agentic reasoning hallucinates and drifts. Jev handles classification and routing reliably and fast, letting you reserve expensive LLM reasoning for cases that actually need it.<span class="ts">4:39</span></li>
+</ul>
+<h3>Reality check</h3>
+<ul>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">"Diego Almeida was one of the co-founders of Chat GPT" — He was co-author of the ChatGPT and RLHF papers, key member of OpenAI's post-training team; now CEO of TypeSafe. The term "co-founder" is imprecise but the substance (founding contributor to ChatGPT) is correct.</span></li>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Vercel showed 6x speedup against Gemini 2.5 Flash Lite and cost savings of 10–20x; multiple sources confirm the eval "saturated" (hit ~100% accuracy).</span></li>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Speed and cost claims (20–200x; some sources cite up to 193x faster and 444x cheaper for specific evals) are substantiated across multiple sources.</span></li>
+<li class="v"><span class="verdict v-ok">Supported</span><span class="v-body">Jev can integrate with Claude Code via MCP connectors and official skills, matching the video's claim of "install directly into Cloud Code."</span></li>
+</ul>
+  </article>
+  
+  <div class="watch">
+    <p class="label">Watch</p>
+    <div class="embed">
+      <iframe src="https://www.youtube-nocookie.com/embed/2Bs0Ink_-Uo"
+              title="Jev: a decision model built for production code" loading="lazy" allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+  </div>
+  <a class="backlink" href="../index.html">&larr; All notes</a>
+</div>
+</body></html>
